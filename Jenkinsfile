@@ -17,4 +17,12 @@ pipeline {
       }
     }
   }
+  post {
+    always {
+        junit '**/target/*.xml'
+    }
+    failure {
+        mail to: josue.becerril@vass.com.mx, subject: 'Pipeline failed'
+    }
+  }
 }
